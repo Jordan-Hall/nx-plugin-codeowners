@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "codeowners": {
+      "implementation": "./src/executors/executor",
+      "schema": "./src/executors/schema.json",
+      "description": "This executor is used to fetch reviewers list from project.json files and add them in CODEOWNERS. It help to remove the overhead of setting codeowners manually"
+    }
+  }
+}
