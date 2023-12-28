@@ -37,7 +37,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs swapnil-nx-codeowners 1.0.0 codeowners",
+      "command": "node tools/scripts/publish.mjs swapnil-nx-codeowners {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {

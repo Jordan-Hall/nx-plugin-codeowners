@@ -1,7 +1,10 @@
 import { CodeownersExecutorSchema } from './schema';
 import executor from './executor';
 
-const options: CodeownersExecutorSchema = {};
+const options: CodeownersExecutorSchema = {
+  coreReviewers:[],
+  sources:[]
+};
 
 describe('Codeowners Executor', () => {
   it('can run', async () => {
