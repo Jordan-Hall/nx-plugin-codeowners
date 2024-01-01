@@ -69,8 +69,7 @@ const addCodeOwners = (pathSource: PathLike, coreReviewers: string[] = []) => {
     }
     const content = readFileSync(fileLocation, { encoding: 'utf8', flag: 'r' });
     const applicationReviewers = JSON.parse(content)['reviewers'];
-
-    applicationCodeOwners[fileLocation] =
+    applicationCodeOwners[fileLocation.split('/project.json')[0]] =
       Array.isArray(applicationReviewers) && applicationReviewers.length > 0
         ? applicationReviewers
         : coreReviewers;
