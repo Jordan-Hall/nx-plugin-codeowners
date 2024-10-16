@@ -19,17 +19,10 @@ export function isPathRule(rule: Rules): rule is PathRules {
 }
 
 function formatCodeOwners(rules: PathRules[]): string {
-  // Extract the comment if available
-  const comment = rules[0]?.comment ? `# ${rules[0].comment}\n` : '';
+  return rules.flatMap(rule =>
+    rule.paths.map(path => `${rule.comment ? '# ' + rule.comment + '\n' : '' }${path} ${rule.reviewers.join(' ')}\n`)
+  ).join('\n');
 
-  // Map each rule to the appropriate string format
-  const formattedRules = rules.map(rule => {
-    const paths = rule.paths.join(' ');
-    const reviewers = rule.reviewers.join(', ');
-    return `${paths} ${reviewers}`;
-  }).join('\n');
-
-  return comment + formattedRules;
 }
 
 // Function to convert a string with `*` into a regular expression
